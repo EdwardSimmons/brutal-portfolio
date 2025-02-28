@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
-import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
-// import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { Nav } from "@/components/nav";
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
@@ -9,24 +9,20 @@ const TanStackRouterDevtools =
         // Lazy load in development
         import("@tanstack/router-devtools").then((res) => ({
           default: res.TanStackRouterDevtools,
-          // For Embedded Mode
-          // default: res.TanStackRouterDevtoolsPanel
         }))
       );
+
+const RootLayout = () => (
+  <div className="max-w-screen-sm m-auto">
+    <Nav />
+    <Outlet />
+  </div>
+);
 
 export const Route = createRootRoute({
   component: () => (
     <>
-      <div className="p-2 flex gap-2">
-        <Link to="/" className="[&.active]:font-bold">
-          Home
-        </Link>{" "}
-        <Link to="/about" className="[&.active]:font-bold">
-          About
-        </Link>
-      </div>
-      <hr />
-      <Outlet />
+      <RootLayout />
       <Suspense>
         <TanStackRouterDevtools />
       </Suspense>
