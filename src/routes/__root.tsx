@@ -13,7 +13,7 @@ const TanStackRouterDevtools =
       );
 
 const RootLayout = () => (
-  <div className="max-w-screen-sm m-auto">
+  <div className="max-w-(--breakpoint-sm) m-auto">
     <Nav />
     <Outlet />
   </div>
