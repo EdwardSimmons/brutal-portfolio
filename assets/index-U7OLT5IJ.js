@@ -1,1 +1,0 @@
-import{j as n,L as o,B as t}from"./index-DYbA75zn.js";const i=function(){return n.jsxs("div",{className:"p-2",children:[n.jsx("h3",{children:"Welcome Home!"}),n.jsx(o,{to:"/about",children:n.jsx(t,{children:"About"})})]})};export{i as component};
